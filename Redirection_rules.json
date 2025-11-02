@@ -1,0 +1,10 @@
+[
+    {
+        "Condition": {
+            "KeyPrefixEquals": "home"
+        },
+        "Redirect": {
+            "ReplaceKeyPrefixWith": "index.html"
+        }
+    }
+]
