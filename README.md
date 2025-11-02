@@ -24,7 +24,7 @@ Before you start, make sure you have:
 ```bash
 aws s3 mb s3://your-unique-bucket-name
 Replace your-unique-bucket-name with a globally unique name (e.g. saad-static-site-demo).
-
+```
 ⚙️ Step 2: Enable Static Website Hosting
 Go to the AWS Management Console
 
@@ -36,9 +36,9 @@ Choose "Enable"
 
 Set:
 
-Index document: index.html
+Index document: ```index.html```
 
-(Optional) Error document: error.html
+(Optional) Error document: ```error.html```
 
 Save changes
 
@@ -47,6 +47,7 @@ Update the bucket policy to allow public read access:
 
 json
 Copy code
+```bash
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -59,27 +60,32 @@ Copy code
     }
   ]
 }
+```
 Upload this policy in the Permissions → Bucket Policy section.
 
 📤 Step 4: Upload Website Files
 You can upload files via Console or CLI:
 
-bash
 Copy code
+```bash
 aws s3 cp index.html s3://your-unique-bucket-name/ --acl public-read
+```
 (Repeat for other files if needed.)
 
 🌐 Step 5: Access Your Website
 Once hosting is enabled, your website URL will look like:
-
-pgsql
-Copy code
+```bash
 http://your-unique-bucket-name.s3-website-<region>.amazonaws.com
-Example: http://saad-static-site-demo.s3-website-us-east-1.amazonaws.com
+```
+## Example:
+```bash
+http://saad-static-site-demo.s3-website-us-east-1.amazonaws.com
+```
 
 Open the URL in your browser to view your static site.
 
-🧩 Optional: Add a Custom Domain (Route 53 + CloudFront)
+🧩 Optional: 
+Add a Custom Domain (Route 53 + CloudFront)
 If you want to serve your website from your own domain:
 
 Create a Route 53 hosted zone
@@ -91,9 +97,10 @@ Link the distribution to your S3 bucket
 🧹 Cleanup
 When done, delete the bucket to avoid extra charges:
 
-bash
-Copy code
+```bash
 aws s3 rb s3://your-unique-bucket-name --force
+```
+
 🧰 Tools Used
 AWS S3 – Static site hosting
 
@@ -102,5 +109,5 @@ AWS CLI – Command-line operations
 HTML/CSS/JS – Frontend content
 
 ✍️ Author
-Saad
+Saad Khan
 DevOps Engineer | AWS | Automation | Cloud Infrastructure
